@@ -1,0 +1,25 @@
+{
+  "name": "task-3",
+  "version": "1.0.0",
+  "description": "* User management system with authentication * teams with ability to invite users * poll with variable no of text options within team * dashboard with all polls * show results of poll after admin ends it * UI",
+  "main": "server.js",
+  "scripts": {
+    "devstart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshuamahadevan/Poll-Booth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshuamahadevan/Poll-Booth/issues"
+  },
+  "homepage": "https://github.com/joshuamahadevan/Poll-Booth#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5",
+    "nodemon": "^2.0.12"
+  }
+}
