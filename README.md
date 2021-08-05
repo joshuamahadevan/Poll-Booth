@@ -21,10 +21,10 @@ HACKER++:
 * chat and real tiime video conferencing
 
 ROUTES:
-/api/users/ -> user dashboard (display teams the user is a part of) and team invites
-/api/user/login -> login
-/api/user/register -> register
+* /api/users/ -> user dashboard (display teams the user is a part of) and team invites
+* /api/user/login -> login
+* /api/user/register -> register
 
-/api/team/ -> redirect to /api/user/
-/api/teams/new -> creating new team
-/api/teams/:id -> specific team polls and stuff
+* /api/team/ -> redirect to /api/user/
+* /api/teams/new -> creating new team
+* /api/teams/:id -> specific team polls and stuff
