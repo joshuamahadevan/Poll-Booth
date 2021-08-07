@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/joshuamahadevan/Poll-Booth#readme",
   "dependencies": {
-    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
-    "mongoose": "^5.13.5",
+    "mongoose": "^5.13.5"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.12"
   }
 }

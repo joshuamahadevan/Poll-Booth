@@ -2,9 +2,14 @@ const express=require("express")
 const app=express()
 const mongoose=require("mongoose")
 
+//using json for requests
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
 //connection to database
-mongoose.connect("mongodb+srv://express-user:Monkey1234@poll-booth.byvp5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    { useUnifiedTopology: true, useNewUrlParser: true },  
+//dbName Users
+mongoose.connect("mongodb://localhost:27017/Poll-Booth",
+    { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex:true},  
     ()=> console.log("connected to db"))
 
 //import routes
