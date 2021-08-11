@@ -1,6 +1,7 @@
 const express=require("express")
 const app=express()
 const mongoose=require("mongoose")
+require('dotenv').config()
 
 //using json for requests
 app.use(express.json())
@@ -14,7 +15,7 @@ app.use(express.static("public"))
 
 //connection to database
 //dbName Users
-mongoose.connect("mongodb://localhost:27017/Poll-Booth",
+mongoose.connect(process.env.DB_CONNECT_STRING,
     { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex:true},  
     ()=> app.listen(3000, console.log("connected to db" , "up and running")))
 

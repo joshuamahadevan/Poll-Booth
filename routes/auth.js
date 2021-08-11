@@ -1,6 +1,8 @@
 const router= require("express").Router()
 const bcrypt=require("bcryptjs")
 const User=require("../models/User")
+const jwt=require("jsonwebtoken")
+require('dotenv').config()
 
 router.post("/register", async (req,res)=>{
     console.log("post request from login form")
@@ -34,15 +36,19 @@ router.get("/register", (req,res)=>{
 })
 
 router.post("/login", async (req,res)=>{
-    const entry=await User.findOne({email:req.body.email})
-    if(!entry){
+    const user_db=await User.findOne({email:req.body.email})
+    if(!user_db){
         res.status(400).send("email doesnot exist")
     }else{
-        const validPassword=await bcrypt.compare(req.body.password, entry.password)
+        const validPassword=await bcrypt.compare(req.body.password, user_db.password)
         if(!validPassword){
             res.status(400).send("wrong password")
         }else{
-            res.send("logged in ig")
+            const token=jwt.sign({
+                name: user_db.name,
+                email:user_db.email
+            }, process.env.SERVER_SECRET)
+            res.json({accessToken:token})
         }            
     }
 })
