@@ -1,0 +1,102 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  height: 100vh;
+  position: relative;
+  min-height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #373A36;
+}
+
+.container {
+  position: relative;
+}
+
+.center-box {
+  background-color: #D48166;
+  padding: 2rem;
+  border-radius: .5rem;
+  min-width: 50vh;
+}
+
+.field {
+  margin: 1rem 0;
+}
+
+h1 {
+  display: inline-block;
+  font-size: 4rem;
+  border-bottom: 5px solid #373A36;
+  margin: 0;
+  padding: 0 1rem 0 .25rem;
+}
+
+label {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  min-height: 2rem;
+  min-width: 50vh;
+  margin: .5rem 0;
+  font-size: 1rem;
+}
+
+.title-container {
+  padding: 1rem 0;
+}
+
+#asdf {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.link > a {
+  padding: 1rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.button > button {
+  background-color: #E6E2DD;
+  color: #373A36;
+  border-radius: .25rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+}
+
+.button > button:hover {
+  background-color: #373A36;
+  color: #D48166;
+}
+
+.wrong {
+  border: 5px solid red;
+}
+
+.right {
+  border: 5px solid #4BB543;
+}
+/*# sourceMappingURL=styles.css.map */

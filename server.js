@@ -6,11 +6,17 @@ const mongoose=require("mongoose")
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
+// using ejs as view engine
+app.set('view engine','ejs')
+
+//static files
+app.use(express.static("public"))
+
 //connection to database
 //dbName Users
 mongoose.connect("mongodb://localhost:27017/Poll-Booth",
     { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex:true},  
-    ()=> console.log("connected to db"))
+    ()=> app.listen(3000, console.log("connected to db" , "up and running")))
 
 //import routes
 const authRoute=require("./routes/auth")
@@ -30,4 +36,3 @@ app.use((req,res)=>{
     res.status(404).send("404 error")
 })
 
-app.listen(3000, console.log("up and running"))

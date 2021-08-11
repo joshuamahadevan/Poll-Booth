@@ -3,6 +3,8 @@ const bcrypt=require("bcryptjs")
 const User=require("../models/User")
 
 router.post("/register", async (req,res)=>{
+    console.log("post request from login form")
+    console.log(req.body)
     if(!req.body.email || !req.body.email || !req.body.email){
         res.status(400).send("enter all values")
     }else{
@@ -28,29 +30,25 @@ router.post("/register", async (req,res)=>{
 })
 
 router.get("/register", (req,res)=>{
-    res.send("register-page")
+    res.render('register')
 })
 
 router.post("/login", async (req,res)=>{
-    if(!req.body.email || !req.body.password){
-        res.status(400).send("enter both email and password")
+    const entry=await User.findOne({email:req.body.email})
+    if(!entry){
+        res.status(400).send("email doesnot exist")
     }else{
-        const entry=await User.findOne({email:req.body.email})
-        if(!entry){
-            res.status(400).send("email doesnot exist")
+        const validPassword=await bcrypt.compare(req.body.password, entry.password)
+        if(!validPassword){
+            res.status(400).send("wrong password")
         }else{
-            const validPassword=await bcrypt.compare(req.body.password, entry.password)
-            if(!validPassword){
-                res.status(400).send("wrong password")
-            }else{
-                res.send("logged in ig")
-            }            
-        }
+            res.send("logged in ig")
+        }            
     }
 })
 
 router.get("/login", (req,res)=>{
-    res.send("login-page")
+    res.render("login")
 })
 
 router.get("/", (req,res)=>{
