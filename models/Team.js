@@ -3,10 +3,11 @@ const teamSchema=mongoose.Schema({
     name:{
         type: String,
         required: true,
-        min:6
+        min:6,
+        unique: true
     },
-    admins:[ { id: String }],
-    polls:[ { id: String }],
+    admins:[ { Uid: String }],
+    polls:[ { Pid: String }],
 })
 
 module.exports=mongoose.model('Team',teamSchema)
